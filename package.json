@@ -1,0 +1,22 @@
+{
+  "name": "cypresswithts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run --spec",
+    "cypress": "npx cypress open "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.0",
+    "dotenv": "^16.3.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
