@@ -1,0 +1,24 @@
+import INVALID_DATA from "../../data/invalidData";
+import * as data from "../../data/sampleData";
+
+describe("error API", () => {
+  beforeEach("err validation", () => {
+    cy.request({
+      method: data.METHODS.POST,
+      url: data.URL.GOREST_URL,
+      body: INVALID_DATA,
+      headers: {
+        Authorization:
+          "Bearer " +
+          "d7773c7b9e932dd4b231a92e2db271c96ad6d80a64a9e72e66add31f3ad14d00",
+      },
+      failOnStatusCode: false,
+    }).as("invalid");
+  });
+
+  it("Assert status", () => {
+    cy.get("@invalid")
+      .its("status")
+      .should("equal", data.NUMBERS.FOUR_HUNDRED_AND_TWENTY_TWO);
+  });
+});

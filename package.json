@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run --spec",
+    "test": "ts-node run-cypress.ts",
     "cypress": "npx cypress open "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^13.1.0"
+    "cypress": "^13.1.0",
+    "mysql2": "^3.6.1"
   },
   "devDependencies": {
     "@types/node": "^20.6.0",

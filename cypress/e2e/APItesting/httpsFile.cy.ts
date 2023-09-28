@@ -1,14 +1,16 @@
+import * as data from "../../data/sampleData";
+
 describe("API test", () => {
   it("get call", () => {
-    cy.request("GET", "https://jsonplaceholder.typicode.com/posts/1")
+    cy.request(data.METHODS.GET, data.URL.TYPECODE_URL)
       .its("status")
-      .should("equal", 200);
+      .should("equal", data.NUMBERS.TWO_HUNDRED);
   });
 
   it("post call", () => {
     cy.request({
-      method: "POST",
-      url: "https://jsonplaceholder.typicode.com/posts/",
+      method: data.METHODS.POST,
+      url: data.URL.TYPECODE_URL,
       body: {
         userId: 1,
         title: "jfoej",
@@ -16,13 +18,13 @@ describe("API test", () => {
       },
     })
       .its("status")
-      .should("equal", 201);
+      .should("equal", data.NUMBERS.TWO_HUNDRED_AND_ONE);
   });
 
   it("put call", () => {
     cy.request({
-      method: "PUT",
-      url: "https://jsonplaceholder.typicode.com/posts/1",
+      method: data.METHODS.PUT,
+      url: data.URL.TYPECODE_URL,
       body: {
         userId: 1,
         title: "updated",
@@ -30,15 +32,15 @@ describe("API test", () => {
       },
     })
       .its("status")
-      .should("equal", 200);
+      .should("equal", data.NUMBERS.TWO_HUNDRED);
   });
 
   it("delete call", () => {
     cy.request({
-      method: "DELETE",
-      url: "https://jsonplaceholder.typicode.com/posts/1",
+      method: data.METHODS.DELETE,
+      url: data.URL.TYPECODE_URL,
     })
       .its("status")
-      .should("equal", 200);
+      .should("equal", data.NUMBERS.TWO_HUNDRED);
   });
 });
