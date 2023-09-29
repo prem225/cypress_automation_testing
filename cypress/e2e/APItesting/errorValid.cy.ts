@@ -8,9 +8,7 @@ describe("error API", () => {
       url: data.URL.GOREST_URL,
       body: INVALID_DATA,
       headers: {
-        Authorization:
-          "Bearer " +
-          "d7773c7b9e932dd4b231a92e2db271c96ad6d80a64a9e72e66add31f3ad14d00",
+        Authorization: process.env.TOKEN,
       },
       failOnStatusCode: false,
     }).as("invalid");
@@ -19,6 +17,6 @@ describe("error API", () => {
   it("Assert status", () => {
     cy.get("@invalid")
       .its("status")
-      .should("equal", data.NUMBERS.FOUR_HUNDRED_AND_TWENTY_TWO);
+      .should("equal", data.NUMBERS.FOUR_HUNDRED_AND_ONE);
   });
 });

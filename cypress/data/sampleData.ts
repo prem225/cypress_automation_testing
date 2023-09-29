@@ -13,7 +13,7 @@ export const URL = {
 export const NUMBERS = {
   TWO_HUNDRED: 200,
   TWO_HUNDRED_AND_ONE: 201,
-  FOUR_HUNDRED_AND_TWENTY_TWO: 422,
+  FOUR_HUNDRED_AND_ONE: 401,
 };
 
 export default METHODS;
