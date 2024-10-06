@@ -1,14 +1,14 @@
 pipeline {
     agent any
 
-    environment {
-        NODE_ENV = 'production'
-        CYPRESS_BASE_URL = 'https://your-app-url.com'
+    tools{
+        nodejs('16.20.1')
     }
 
     stages {
         stage('Checkout Code') {
             steps {
+                // Pull the code from the GitHub repository
                 git url: 'https://github.com/prem225/cypress_automation_testing.git', branch: 'main'
             }
         }
@@ -16,9 +16,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    nodejs('NodeJS_16') {
+                    // Ensure NodeJS is set up as a Global Tool in Jenkins and replace with correct installation name
                         sh 'npm install'
-                    }
                 }
             }
         }
@@ -37,7 +36,6 @@ pipeline {
 
     post {
         always {
-            // Clean up the workspace after the pipeline completes
             cleanWs()
         }
     }
