@@ -3,6 +3,8 @@ pipeline {
 
     environment {
         NODE_ENV = 'production'
+        CYPRESS_BASE_URL = 'https://your-app-url.com'
+    }
 
     stages {
         stage('Checkout Code') {
@@ -14,7 +16,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    nodejs(nodeJSInstallationName: 'NodeJS 16') {
+                    nodejs('NodeJS_16') {
                         sh 'npm install'
                     }
                 }
@@ -32,5 +34,11 @@ pipeline {
             }
         }
     }
-}
+
+    post {
+        always {
+            // Clean up the workspace after the pipeline completes
+            cleanWs()
+        }
+    }
 }
